@@ -1,11 +1,8 @@
-h1 {
-    color: red;
+.test {
+    font-family: monospace;
 }
 
-p {
-    color: blue;
-}
-
-li {
-    color: green;
+.container {
+    margin: 0 auto;
+    max-width: 970px;
 }
