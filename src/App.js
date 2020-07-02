@@ -2,17 +2,22 @@ import React from "react"
 import Stylesheet from "../src/style.css"
 import MainContent from "../src/components/MainContent"
 import Footer from "../src/components/Footer"
-import TodoItem from "../src/components/TodoItem"
+import Product from "./components/Product"
+import productsData from "../src/components/ProductsData"
 
-const App = () => (
+function App() {
+
+    const productComponents = productsData.map(product => <Product key={product.id} 
+    product={product} />)
+
+    return (
     <div className="container">
         <MainContent />
-        <TodoItem label="Test 1" />
-        <TodoItem label="Test 2" />
-        <TodoItem />
-        <TodoItem />
+        {productComponents}
         <Footer />
     </div>
-)
+    )
+}
 
 export default App
+
