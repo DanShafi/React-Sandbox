@@ -18,12 +18,35 @@ class App extends React.Component {
             <div>
                 <h1>My First To-Do List</h1>
                 {todoItems}
+                <Counter />
             </div>
         )
     }
 }
 
+class Counter extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            count: 0
+        }
+        this.handleClick = this.handleClick.bind(this)
+    }
 
+    handleClick() {
+        this.setState({ count: 1 })
+    }
+
+    render() {
+        let counter = this.state.count
+        return (
+            <div>
+                <h1>{counter}</h1>
+                <button onClick={this.handleClick}>Change</button>
+            </div>
+        )
+    }
+}
 
 // class Header extends React.Component {
 //     constructor() {
