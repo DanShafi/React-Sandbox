@@ -7,7 +7,9 @@
     max-width: 970px;
 }
 
-.YouTubeCards {
-    float: left;
-    width: 25%;
+.todo-item {
+    background-color: rgb(212, 212, 212);
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 200px;
+    line-height: 2em;
 }
