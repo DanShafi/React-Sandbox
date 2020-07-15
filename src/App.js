@@ -19,6 +19,7 @@ class App extends React.Component {
                 <h1>My First To-Do List</h1>
                 {todoItems}
                 <Counter />
+                <Test />
             </div>
         )
     }
@@ -47,6 +48,16 @@ class Counter extends React.Component {
         )
     }
 }
+
+function Test() {
+    return (
+        <div>
+            <h1>This is test</h1>
+        </div>
+    )
+}
+
+// Test.
 
 // class Header extends React.Component {
 //     constructor() {
