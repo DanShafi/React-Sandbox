@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import "../src/style.css"
 import ToDoItem from "./components/TodoItem"
 import todoData from "./components/todoData"
+import New from "./components/New"
 
 class App extends React.Component {
     constructor() {
@@ -9,16 +10,32 @@ class App extends React.Component {
         this.state = {
             todos: todoData
         }
-
+        this.handleChange = this.handleChange.bind(this)
     }
+
+    handleChange(id) {
+        this.setState(prevState => {
+            const updatedTodos = prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = !todo.completed
+                }
+                return todo
+            })
+            return {
+                todos: updatedTodos
+            }
+        })
+    }
+
     render() {
         const todoItems = this.state.todos.map(item => <ToDoItem key={item.id}
-            item={item} />)
+            item={item} handleChange={this.handleChange} />)
         return (
             <div>
                 <h1>My First To-Do List</h1>
                 {todoItems}
                 <Counting />
+                <New />
             </div>
         )
     }
@@ -45,8 +62,8 @@ class Counting extends React.Component {
     render() {
         return (
             <div>
-                <h1>This is my counter.</h1>
-                <h3>{this.state.count}</h3>
+                <h1>JS Counter</h1>
+                <h1>{this.state.count}</h1>
                 <button onClick={this.handleClick2}>-</button>
                 <button onClick={this.handleClick}>+</button>
             </div>
