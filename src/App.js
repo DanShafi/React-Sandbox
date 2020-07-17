@@ -18,44 +18,71 @@ class App extends React.Component {
             <div>
                 <h1>My First To-Do List</h1>
                 {todoItems}
-                <Counter />
-                <Test />
+                <Counting />
             </div>
         )
     }
 }
 
-class Counter extends React.Component {
+class Counting extends React.Component {
     constructor() {
         super()
         this.state = {
             count: 0
         }
         this.handleClick = this.handleClick.bind(this)
+        this.handleClick2 = this.handleClick2.bind(this)
     }
 
     handleClick() {
-        this.setState({ count: 1 })
+        this.setState({count: this.state.count + 1})
+    }
+
+    handleClick2() {
+        this.setState({count: this.state.count - 1})
     }
 
     render() {
-        let counter = this.state.count
         return (
             <div>
-                <h1>{counter}</h1>
-                <button onClick={this.handleClick}>Change</button>
+                <h1>This is my counter.</h1>
+                <h3>{this.state.count}</h3>
+                <button onClick={this.handleClick2}>-</button>
+                <button onClick={this.handleClick}>+</button>
             </div>
         )
     }
 }
 
-function Test() {
-    return (
-        <div>
-            <h1>This is test</h1>
-        </div>
-    )
-}
+
+
+
+
+
+
+// class Counter extends React.Component {
+//     constructor() {
+//         super()
+//         this.state = {
+//             count: 0
+//         }
+//         this.handleClick = this.handleClick.bind(this)
+//     }
+
+//     handleClick() {
+//         this.setState({count: this.state.count + 1})
+//     }
+
+//     render() {
+//         let counter = this.state.count
+//         return (
+//             <div>
+//                 <h1>{counter}</h1>
+//                 <button onClick={this.handleClick}>Change</button>
+//             </div>
+//         )
+//     }
+// }
 
 // Test.
 
